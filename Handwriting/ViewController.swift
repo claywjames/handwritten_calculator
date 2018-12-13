@@ -21,7 +21,9 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
+    @IBAction func drawClicked(_ sender: NSButton) {
+        print("clicked")
+    }
 }
 
