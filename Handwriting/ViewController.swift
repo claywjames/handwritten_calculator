@@ -9,11 +9,14 @@
 import Cocoa
 
 class ViewController: NSViewController {
-
+    
+    var drawing = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        self.view.allowedTouchTypes = [NSTouch.TouchTypeMask.indirect, NSTouch.TouchTypeMask.direct]
     }
 
     override var representedObject: Any? {
@@ -22,8 +25,14 @@ class ViewController: NSViewController {
         }
     }
     
+    override func touchesBegan(with event: NSEvent) {
+        if (drawing) {
+            print(event.touches(matching: NSTouch.Phase.began, in: self.view))
+        }
+    }
+    
     @IBAction func drawClicked(_ sender: NSButton) {
-        print("clicked")
+        drawing = true
     }
 }
 
