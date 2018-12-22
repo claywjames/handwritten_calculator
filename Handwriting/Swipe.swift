@@ -21,17 +21,8 @@ class StrokeCollection {
 }
 
 class Stroke {
-    var samples = [StrokeSample]()
-    func add(sample: StrokeSample) {
+    var samples = [NSPoint]()
+    func add(sample: NSPoint) {
         samples.append(sample)
-    }
-}
-
-struct StrokeSample {
-    let location: NSPoint
-    let coalescedSample: Bool
-    init(point: NSPoint, coalesced : Bool = false) {
-        location = point
-        coalescedSample = coalesced
     }
 }
