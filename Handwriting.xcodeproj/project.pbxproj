@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1DCCC321CC8F170081E69D /* Swipe.swift */; };
 		CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */; };
 		CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E421C0C5D4000ABC34 /* ViewController.swift */; };
 		CE5190E721C0C5D5000ABC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5190E621C0C5D5000ABC34 /* Assets.xcassets */; };
 		CE5190EA21C0C5D5000ABC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5190E821C0C5D5000ABC34 /* Main.storyboard */; };
 		CE5190F621C0C5D5000ABC34 /* HandwritingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190F521C0C5D5000ABC34 /* HandwritingTests.swift */; };
 		CE51910121C0C5D5000ABC34 /* HandwritingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51910021C0C5D5000ABC34 /* HandwritingUITests.swift */; };
+		CEFE2EF921CEC61D00E1BFB1 /* TouchResponderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1DCCC321CC8F170081E69D /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
 		CE5190DF21C0C5D4000ABC34 /* Handwriting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handwriting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5190E421C0C5D4000ABC34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		CE5190FC21C0C5D5000ABC34 /* HandwritingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandwritingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE51910021C0C5D5000ABC34 /* HandwritingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandwritingUITests.swift; sourceTree = "<group>"; };
 		CE51910221C0C5D5000ABC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchResponderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				CE5190E821C0C5D5000ABC34 /* Main.storyboard */,
 				CE5190EB21C0C5D5000ABC34 /* Info.plist */,
 				CE5190EC21C0C5D5000ABC34 /* Handwriting.entitlements */,
+				CE1DCCC321CC8F170081E69D /* Swipe.swift */,
+				CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */,
 			);
 			path = Handwriting;
 			sourceTree = "<group>";
@@ -254,8 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */,
 				CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */,
 				CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */,
+				CEFE2EF921CEC61D00E1BFB1 /* TouchResponderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
