@@ -29,7 +29,6 @@ class TouchResponderView: NSView {
     
     override func touchesBegan(with event: NSEvent) {
         if (drawing) {
-            print("began")
             let touches = event.touches(matching: NSTouch.Phase.began, in: self)
             let newStroke = Stroke()
             strokeCollection.activeStroke = newStroke
@@ -39,7 +38,6 @@ class TouchResponderView: NSView {
     
     override func touchesMoved(with event: NSEvent) {
         if (drawing) {
-            print("moved")
             let touches = event.touches(matching: NSTouch.Phase.moved, in: self)
             addSample(for: touches.first!)
         }
@@ -47,10 +45,14 @@ class TouchResponderView: NSView {
     
     override func touchesEnded(with event: NSEvent) {
         if (drawing) {
-            print("ended")
             let touches = event.touches(matching: NSTouch.Phase.ended, in: self)
             addSample(for: touches.first!)
             strokeCollection.acceptActiveStroke()
+            let drawingBox = self.subviews.first { (view: NSView) -> Bool in
+                view.identifier == NSUserInterfaceItemIdentifier("drawingBox")
+                } as! DrawingBox;
+            
+            drawingBox.strokes = strokeCollection.strokes
         }
     }
     
@@ -60,18 +62,24 @@ class TouchResponderView: NSView {
     
     override func keyDown(with event: NSEvent) {
         if (drawing) {
-            print(strokeCollection.strokes)
             drawing = false
+            showMouse()
         }
     }
     
     func addSample(for touch: NSTouch) {
         if let stroke = strokeCollection.activeStroke {
-            stroke.add(sample: touch.normalizedPosition)
-
-            // Update the view.
-            //self.setNeedsDisplay()
+            stroke.add(sample: touch.pos(self.subviews.first!))
+            
         }
+    }
+    
+    func hideMouse() {
+        NSCursor.hide()
+    }
+    
+    func showMouse() {
+        NSCursor.unhide()
     }
     
 }

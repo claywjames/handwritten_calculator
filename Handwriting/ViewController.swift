@@ -18,6 +18,8 @@ class ViewController: NSViewController {
     @IBAction func drawClicked(_ sender: NSButton) {
         let touchResponderView = self.view as! TouchResponderView
         touchResponderView.drawing = true
+        
+        touchResponderView.hideMouse()
     }
 }
 

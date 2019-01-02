@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0AA84321D9918900964900 /* NSTouchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA84221D9918900964900 /* NSTouchExtensions.swift */; };
 		CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1DCCC321CC8F170081E69D /* Swipe.swift */; };
+		CE48A22B21DAD2AE00BD5EE5 /* DrawingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */; };
 		CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */; };
 		CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E421C0C5D4000ABC34 /* ViewController.swift */; };
 		CE5190E721C0C5D5000ABC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE5190E621C0C5D5000ABC34 /* Assets.xcassets */; };
@@ -35,7 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0AA84221D9918900964900 /* NSTouchExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTouchExtensions.swift; sourceTree = "<group>"; };
 		CE1DCCC321CC8F170081E69D /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
+		CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBox.swift; sourceTree = "<group>"; };
 		CE5190DF21C0C5D4000ABC34 /* Handwriting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handwriting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE5190E421C0C5D4000ABC34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				CE5190EC21C0C5D5000ABC34 /* Handwriting.entitlements */,
 				CE1DCCC321CC8F170081E69D /* Swipe.swift */,
 				CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */,
+				CE0AA84221D9918900964900 /* NSTouchExtensions.swift */,
+				CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */,
 			);
 			path = Handwriting;
 			sourceTree = "<group>";
@@ -261,6 +267,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */,
+				CE0AA84321D9918900964900 /* NSTouchExtensions.swift in Sources */,
+				CE48A22B21DAD2AE00BD5EE5 /* DrawingBox.swift in Sources */,
 				CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */,
 				CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */,
 				CEFE2EF921CEC61D00E1BFB1 /* TouchResponderView.swift in Sources */,

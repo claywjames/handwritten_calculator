@@ -706,24 +706,24 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Handwriting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="TouchResponderView" customModule="Handwriting" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box boxType="custom" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="F5u-8x-0Oe">
-                                <rect key="frame" x="50" y="200" width="700" height="200"/>
+                            <box identifier="drawingBox" boxType="custom" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="F5u-8x-0Oe" customClass="DrawingBox" customModule="Handwriting" customModuleProvider="target">
+                                <rect key="frame" x="50" y="87" width="600" height="400"/>
                                 <view key="contentView" id="Snn-ff-XhY">
-                                    <rect key="frame" x="0.0" y="0.0" width="700" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="700" id="pbJ-nm-8UI"/>
-                                    <constraint firstAttribute="height" constant="200" id="xwb-uX-rJZ"/>
+                                    <constraint firstAttribute="width" constant="600" id="pbJ-nm-8UI"/>
+                                    <constraint firstAttribute="height" constant="400" id="xwb-uX-rJZ"/>
                                 </constraints>
                                 <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="fillColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pug-Xa-RZE">
-                                <rect key="frame" x="44" y="403" width="72" height="32"/>
+                                <rect key="frame" x="44" y="500" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Draw" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7hU-n3-7fF">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -734,11 +734,11 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="F5u-8x-0Oe" secondAttribute="bottom" constant="200" id="2qa-Jr-fOD"/>
+                            <constraint firstAttribute="bottom" secondItem="F5u-8x-0Oe" secondAttribute="bottom" constant="87" id="2qa-Jr-fOD"/>
                             <constraint firstItem="pug-Xa-RZE" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="PmB-e0-wHr"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pug-Xa-RZE" secondAttribute="trailing" constant="10" id="gv1-EQ-l24"/>
                             <constraint firstItem="F5u-8x-0Oe" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="gza-gT-R6n"/>
-                            <constraint firstItem="F5u-8x-0Oe" firstAttribute="top" secondItem="pug-Xa-RZE" secondAttribute="bottom" constant="10" id="pgb-Pd-bmL"/>
+                            <constraint firstItem="F5u-8x-0Oe" firstAttribute="top" secondItem="pug-Xa-RZE" secondAttribute="bottom" constant="20" id="pgb-Pd-bmL"/>
                             <constraint firstAttribute="trailing" secondItem="F5u-8x-0Oe" secondAttribute="trailing" constant="50" id="teD-o2-2tc"/>
                         </constraints>
                     </view>
