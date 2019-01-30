@@ -12,6 +12,7 @@ class TouchResponderView: NSView {
     
     var drawing = false
     var strokeCollection = StrokeCollection()
+    private var monitor: AnyObject?
     
     override var acceptsFirstResponder: Bool { return true }
     
@@ -76,10 +77,12 @@ class TouchResponderView: NSView {
     
     func hideMouse() {
         NSCursor.hide()
+        CGAssociateMouseAndMouseCursorPosition(0)
     }
     
     func showMouse() {
         NSCursor.unhide()
+        CGAssociateMouseAndMouseCursorPosition(1)
     }
     
 }
