@@ -10,7 +10,7 @@ import Cocoa
 
 class DrawingBox: NSBox {
     
-    var strokes: [Stroke]? {
+    var strokeCollection = StrokeCollection() {
         didSet {
             self.display()
         }
@@ -24,23 +24,49 @@ class DrawingBox: NSBox {
         super.init(coder: decoder)
     }
     
+    func newStroke(_ touch: NSTouch) {
+        let newStroke = Stroke()
+        strokeCollection.activeStroke = newStroke
+        addSample(for: touch)
+        self.display()
+    }
+    
+    func continueStroke(_ touch: NSTouch) {
+        addSample(for: touch)
+        self.display()
+    }
+    
+    func endStroke(_ touch: NSTouch) {
+        addSample(for: touch)
+        strokeCollection.acceptActiveStroke()
+        self.display()
+    }
+    
+    func cancelStroke() {
+        strokeCollection.activeStroke = nil
+        self.display()
+    }
+    
+    func addSample(for touch: NSTouch) {
+        if let stroke = strokeCollection.activeStroke {
+            stroke.add(sample: touch.pos(self))
+        }
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
-        if let lines = strokes {
-            let color = NSColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
-            color.set()
-            
-            for line in lines {
-                let path = NSBezierPath()
-                path.lineWidth = 2
-                path.move(to: line.samples.first!)
-                for point in line.samples {
-                    path.line(to: point)
-                }
-                path.stroke()
+        let color = NSColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        color.set()
+        
+        for line in strokeCollection.strokes {
+            let path = NSBezierPath()
+            path.lineWidth = 2
+            path.move(to: line.samples.first!)
+            for point in line.samples {
+                path.line(to: point)
             }
-            
+            path.stroke()
         }
     }
     

@@ -9,12 +9,18 @@
 import Cocoa
 
 class StrokeCollection {
-    var strokes = [Stroke]()
+    var acceptedStrokes = [Stroke]()
     var activeStroke: Stroke? = nil
+    var strokes: [Stroke] {
+        if let stroke = activeStroke {
+            return acceptedStrokes + [stroke]
+        }
+        return acceptedStrokes
+    }
     
     func acceptActiveStroke() {
         if let stroke = activeStroke {
-            strokes.append(stroke)
+            acceptedStrokes.append(stroke)
             activeStroke = nil
         }
     }

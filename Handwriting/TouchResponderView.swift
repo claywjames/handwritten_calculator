@@ -11,17 +11,23 @@ import Cocoa
 class TouchResponderView: NSView {
     
     var drawing = false
-    var strokeCollection = StrokeCollection()
     private var monitor: AnyObject?
+    private var drawingBox: DrawingBox?
     
     override var acceptsFirstResponder: Bool { return true }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        drawingBox = (self.subviews.first { (view: NSView) -> Bool in
+            view.identifier == NSUserInterfaceItemIdentifier("drawingBox")
+            } as! DrawingBox);
     }
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        drawingBox = (self.subviews.first { (view: NSView) -> Bool in
+            view.identifier == NSUserInterfaceItemIdentifier("drawingBox")
+            } as! DrawingBox);
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -31,47 +37,32 @@ class TouchResponderView: NSView {
     override func touchesBegan(with event: NSEvent) {
         if (drawing) {
             let touches = event.touches(matching: NSTouch.Phase.began, in: self)
-            let newStroke = Stroke()
-            strokeCollection.activeStroke = newStroke
-            addSample(for: touches.first!)
+            drawingBox!.newStroke(touches.first!)
         }
     }
     
     override func touchesMoved(with event: NSEvent) {
         if (drawing) {
             let touches = event.touches(matching: NSTouch.Phase.moved, in: self)
-            addSample(for: touches.first!)
+            drawingBox!.continueStroke(touches.first!)
         }
     }
     
     override func touchesEnded(with event: NSEvent) {
         if (drawing) {
             let touches = event.touches(matching: NSTouch.Phase.ended, in: self)
-            addSample(for: touches.first!)
-            strokeCollection.acceptActiveStroke()
-            let drawingBox = self.subviews.first { (view: NSView) -> Bool in
-                view.identifier == NSUserInterfaceItemIdentifier("drawingBox")
-                } as! DrawingBox;
-            
-            drawingBox.strokes = strokeCollection.strokes
+            drawingBox!.endStroke(touches.first!)
         }
     }
     
     override func touchesCancelled(with event: NSEvent) {
-        strokeCollection.activeStroke = nil
+        drawingBox!.cancelStroke()
     }
     
     override func keyDown(with event: NSEvent) {
         if (drawing) {
             drawing = false
             showMouse()
-        }
-    }
-    
-    func addSample(for touch: NSTouch) {
-        if let stroke = strokeCollection.activeStroke {
-            stroke.add(sample: touch.pos(self.subviews.first!))
-            
         }
     }
     
