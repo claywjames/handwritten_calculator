@@ -16,6 +16,8 @@ class DrawingBox: NSBox {
         }
     }
     
+    var strokeImages = [NSBitmapImageRep]()
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
@@ -38,7 +40,11 @@ class DrawingBox: NSBox {
     
     func endStroke(_ touch: NSTouch) {
         addSample(for: touch)
-        strokeCollection.acceptActiveStroke()
+        if let stroke = strokeCollection.activeStroke{
+            self.saveStrokeImage(for: stroke)
+            strokeCollection.acceptActiveStroke()
+        }
+        
         self.display()
     }
     
@@ -68,6 +74,28 @@ class DrawingBox: NSBox {
             }
             path.stroke()
         }
+    }
+    
+    func saveStrokeImage(for stroke: Stroke) {
+        let xmin = stroke.samples.min { (lhs: CGPoint, rhs: CGPoint) -> Bool in
+            lhs.x < rhs.x;
+            }!.x - 5;
+        let xmax = stroke.samples.max { (lhs: CGPoint, rhs: CGPoint) -> Bool in
+            lhs.x < rhs.x;
+            }!.x + 5;
+        let ymin = stroke.samples.min { (lhs: CGPoint, rhs: CGPoint) -> Bool in
+            lhs.y < rhs.y;
+            }!.y - 5;
+        let ymax = stroke.samples.max { (lhs: CGPoint, rhs: CGPoint) -> Bool in
+            lhs.y < rhs.y;
+            }!.y + 5;
+        let width = xmax - xmin;
+        let height = ymax - ymin;
+        
+        let boundingRect = NSRect(x: xmin, y: ymin, width: width, height: height)
+        let image = self.bitmapImageRepForCachingDisplay(in: boundingRect)!
+        self.cacheDisplay(in: boundingRect, to: image)
+        strokeImages.append(image)
     }
     
 }

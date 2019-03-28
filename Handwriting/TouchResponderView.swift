@@ -11,7 +11,6 @@ import Cocoa
 class TouchResponderView: NSView {
     
     var drawing = false
-    private var monitor: AnyObject?
     private var drawingBox: DrawingBox?
     
     override var acceptsFirstResponder: Bool { return true }
@@ -63,6 +62,23 @@ class TouchResponderView: NSView {
         if (drawing) {
             drawing = false
             showMouse()
+            if let images = drawingBox?.strokeImages {
+                let tiffs = images.map { (image: NSBitmapImageRep) -> Data in
+                    return image.tiffRepresentation!;
+                }
+                var i = 1;
+                let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                for tiff in tiffs {
+                    do {
+                        let fileUrl = documentsUrl.appendingPathComponent(String(i) + ".tiff").path
+                        let url = URL(fileURLWithPath: fileUrl)
+                        try tiff.write(to: url, options: Data.WritingOptions.atomic)
+                    } catch {
+                        NSLog("error in writing -> \(error.localizedDescription)")
+                    }
+                    i += 1
+                }
+            }
         }
     }
     

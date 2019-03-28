@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE0AA84321D9918900964900 /* NSTouchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AA84221D9918900964900 /* NSTouchExtensions.swift */; };
-		CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1DCCC321CC8F170081E69D /* Swipe.swift */; };
+		CE1DCCC421CC8F170081E69D /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1DCCC321CC8F170081E69D /* Stroke.swift */; };
 		CE48A22B21DAD2AE00BD5EE5 /* DrawingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */; };
 		CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */; };
 		CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190E421C0C5D4000ABC34 /* ViewController.swift */; };
@@ -16,6 +16,7 @@
 		CE5190EA21C0C5D5000ABC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE5190E821C0C5D5000ABC34 /* Main.storyboard */; };
 		CE5190F621C0C5D5000ABC34 /* HandwritingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5190F521C0C5D5000ABC34 /* HandwritingTests.swift */; };
 		CE51910121C0C5D5000ABC34 /* HandwritingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE51910021C0C5D5000ABC34 /* HandwritingUITests.swift */; };
+		CE5B4BFD224C079F00468A71 /* MultiArrayMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B4BFC224C079F00468A71 /* MultiArrayMapper.swift */; };
 		CEAE8C45224867AF00170E6E /* digitRecognizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CEAE8C44224866A400170E6E /* digitRecognizer.mlmodel */; };
 		CEFE2EF921CEC61D00E1BFB1 /* TouchResponderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */; };
 /* End PBXBuildFile section */
@@ -39,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		CE0AA84221D9918900964900 /* NSTouchExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSTouchExtensions.swift; sourceTree = "<group>"; };
-		CE1DCCC321CC8F170081E69D /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
+		CE1DCCC321CC8F170081E69D /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingBox.swift; sourceTree = "<group>"; };
 		CE5190DF21C0C5D4000ABC34 /* Handwriting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handwriting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5190E221C0C5D4000ABC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		CE5190FC21C0C5D5000ABC34 /* HandwritingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandwritingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE51910021C0C5D5000ABC34 /* HandwritingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandwritingUITests.swift; sourceTree = "<group>"; };
 		CE51910221C0C5D5000ABC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE5B4BFC224C079F00468A71 /* MultiArrayMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiArrayMapper.swift; sourceTree = "<group>"; };
 		CEAE8C44224866A400170E6E /* digitRecognizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = digitRecognizer.mlmodel; sourceTree = "<group>"; };
 		CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchResponderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,10 +115,11 @@
 				CE5190E821C0C5D5000ABC34 /* Main.storyboard */,
 				CE5190EB21C0C5D5000ABC34 /* Info.plist */,
 				CE5190EC21C0C5D5000ABC34 /* Handwriting.entitlements */,
-				CE1DCCC321CC8F170081E69D /* Swipe.swift */,
+				CE1DCCC321CC8F170081E69D /* Stroke.swift */,
 				CEFE2EF821CEC61D00E1BFB1 /* TouchResponderView.swift */,
 				CE0AA84221D9918900964900 /* NSTouchExtensions.swift */,
 				CE48A22A21DAD2AE00BD5EE5 /* DrawingBox.swift */,
+				CE5B4BFC224C079F00468A71 /* MultiArrayMapper.swift */,
 			);
 			path = Handwriting;
 			sourceTree = "<group>";
@@ -207,13 +210,16 @@
 				TargetAttributes = {
 					CE5190DE21C0C5D4000ABC34 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					CE5190F021C0C5D5000ABC34 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CE5190DE21C0C5D4000ABC34;
 					};
 					CE5190FB21C0C5D5000ABC34 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = CE5190DE21C0C5D4000ABC34;
 					};
 				};
@@ -270,10 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAE8C45224867AF00170E6E /* digitRecognizer.mlmodel in Sources */,
-				CE1DCCC421CC8F170081E69D /* Swipe.swift in Sources */,
+				CE1DCCC421CC8F170081E69D /* Stroke.swift in Sources */,
 				CE0AA84321D9918900964900 /* NSTouchExtensions.swift in Sources */,
 				CE48A22B21DAD2AE00BD5EE5 /* DrawingBox.swift in Sources */,
 				CE5190E521C0C5D4000ABC34 /* ViewController.swift in Sources */,
+				CE5B4BFD224C079F00468A71 /* MultiArrayMapper.swift in Sources */,
 				CE5190E321C0C5D4000ABC34 /* AppDelegate.swift in Sources */,
 				CEFE2EF921CEC61D00E1BFB1 /* TouchResponderView.swift in Sources */,
 			);
@@ -451,7 +458,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.Handwriting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -469,7 +476,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.Handwriting;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -488,7 +495,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.HandwritingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Handwriting.app/Contents/MacOS/Handwriting";
 			};
 			name = Debug;
@@ -508,7 +515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.HandwritingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Handwriting.app/Contents/MacOS/Handwriting";
 			};
 			name = Release;
@@ -527,7 +534,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.HandwritingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Handwriting;
 			};
 			name = Debug;
@@ -546,7 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Clay.HandwritingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Handwriting;
 			};
 			name = Release;
